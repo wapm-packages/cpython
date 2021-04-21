@@ -1191,10 +1191,12 @@ calculate_argv0_path(PyCalculatePath *calculate,
     }
 #endif
 
+#if HAVE_READLINK
     status = resolve_symlinks(&calculate->argv0_path);
     if (_PyStatus_EXCEPTION(status)) {
         return status;
     }
+#endif
 
     reduce(calculate->argv0_path);
 

@@ -2502,7 +2502,7 @@ getsockaddrlen(PySocketSockObject *s, socklen_t *len_ret)
     }
 #endif /* USE_BLUETOOTH */
 
-#ifdef HAVE_NETPACKET_PACKET_H
+#if defined(HAVE_NETPACKET_PACKET_H) && defined(AF_PACKET)
     case AF_PACKET:
     {
         *len_ret = sizeof (struct sockaddr_ll);
@@ -7418,7 +7418,7 @@ PyInit__socket(void)
     PyModule_AddIntMacro(m, AF_SYSTEM);
 #endif
 
-#ifdef AF_PACKET
+#if defined(HAVE_NETPACKET_PACKET_H) && defined(AF_PACKET)
     PyModule_AddIntMacro(m, AF_PACKET);
 #endif
 #ifdef PF_PACKET
@@ -7509,7 +7509,9 @@ PyInit__socket(void)
     /* SOCK_RAW is marked as optional in the POSIX specification */
     PyModule_AddIntMacro(m, SOCK_RAW);
 #endif
+#ifdef SOCK_SEQPACKET
     PyModule_AddIntMacro(m, SOCK_SEQPACKET);
+#endif
 #if defined(SOCK_RDM)
     PyModule_AddIntMacro(m, SOCK_RDM);
 #endif
