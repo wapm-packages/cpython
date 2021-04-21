@@ -2989,22 +2989,22 @@ err_occurred:
 static PyStatus
 _PySys_SetPreliminaryStderr(PyObject *sysdict)
 {
-    PyObject *pstderr = PyFile_NewStdPrinter(fileno(stderr));
-    if (pstderr == NULL) {
-        goto error;
-    }
-    if (_PyDict_SetItemId(sysdict, &PyId_stderr, pstderr) < 0) {
-        goto error;
-    }
-    if (PyDict_SetItemString(sysdict, "__stderr__", pstderr) < 0) {
-        goto error;
-    }
-    Py_DECREF(pstderr);
+    // PyObject *pstderr = PyFile_NewStdPrinter(fileno(stderr));
+    // if (pstderr == NULL) {
+    //     goto error;
+    // }
+    // if (_PyDict_SetItemId(sysdict, &PyId_stderr, pstderr) < 0) {
+    //     goto error;
+    // }
+    // if (PyDict_SetItemString(sysdict, "__stderr__", pstderr) < 0) {
+    //     goto error;
+    // }
+    // Py_DECREF(pstderr);
     return _PyStatus_OK();
 
-error:
-    Py_XDECREF(pstderr);
-    return _PyStatus_ERR("can't set preliminary stderr");
+// error:
+//     Py_XDECREF(pstderr);
+//     return _PyStatus_ERR("can't set preliminary stderr");
 }
 
 

@@ -3,13 +3,13 @@
  * though, because they may be referenced by extensions using the stable ABI.
  */
 
-#include "setjmp.h"
+// #include "setjmp.h"
 
-jmp_buf PyFPE_jbuf;
-int PyFPE_counter;
+// jmp_buf PyFPE_jbuf;
+// int PyFPE_counter;
 
-double
-PyFPE_dummy(void *dummy)
-{
-    return 1.0;
-}
+// double
+// PyFPE_dummy(void *dummy)
+// {
+//     return 1.0;
+// }

@@ -929,9 +929,9 @@ pymonotonic(_PyTime_t *tp, _Py_clock_info_t *info, int raise)
         }
         info->resolution = res.tv_sec + res.tv_nsec * 1e-9;
     }
-    if (pytime_fromtimespec(tp, &ts, raise) < 0) {
-        return -1;
-    }
+    // if (pytime_fromtimespec(tp, &ts, raise) < 0) {
+    //     return -1;
+    // }
 #endif
     return 0;
 }

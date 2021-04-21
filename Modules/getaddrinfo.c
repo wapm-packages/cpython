@@ -57,6 +57,10 @@
 #include "addrinfo.h"
 #endif
 
+typedef unsigned char   u_char;
+typedef unsigned short   u_short;
+typedef unsigned long   u_long;
+
 #if defined(__KAME__) && defined(ENABLE_IPV6)
 # define FAITH
 #endif

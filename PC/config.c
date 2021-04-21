@@ -40,6 +40,7 @@ extern PyObject* PyInit__random(void);
 extern PyObject* PyInit_itertools(void);
 extern PyObject* PyInit__collections(void);
 extern PyObject* PyInit__heapq(void);
+extern PyObject* PyInit_unicodedata(void);
 extern PyObject* PyInit__bisect(void);
 extern PyObject* PyInit__symtable(void);
 extern PyObject* PyInit_mmap(void);
@@ -120,6 +121,7 @@ struct _inittab _PyImport_Inittab[] = {
     {"_random", PyInit__random},
     {"_bisect", PyInit__bisect},
     {"_heapq", PyInit__heapq},
+	{"unicodedata", PyInit_unicodedata},
     {"_lsprof", PyInit__lsprof},
     {"itertools", PyInit_itertools},
     {"_collections", PyInit__collections},
