@@ -572,7 +572,7 @@ ac_default_prefix=/usr/local
 ac_clean_files=
 ac_config_libobj_dir=.
 LIBOBJS=
-cross_compiling=no
+cross_compiling=yes
 subdirs=
 MFLAGS=
 MAKEFLAGS=
@@ -3304,6 +3304,9 @@ then
 	*-*-vxworks*)
 	    ac_sys_system=VxWorks
 	    ;;
+  wasm32-unknown-wasi)
+      ac_sys_system=Wasi
+      ;;
 	*)
 		# for now, limit cross builds to known configurations
 		MACHDEP="unknown"
@@ -3354,6 +3357,9 @@ if test "$cross_compiling" = yes; then
 	*-*-vxworks*)
 		_host_cpu=$host_cpu
 		;;
+  wasm32-unknown-wasi)
+    _host_cpu=$host_cpu
+    ;;
 	*)
 		# for now, limit cross builds to known configurations
 		MACHDEP="unknown"
@@ -9357,6 +9363,9 @@ fi
 
     if test "${ac_osx_32bit}" = "yes"; then
     	case `/usr/bin/arch` in
+    	wasm32)
+    		MACOSX_DEFAULT_ARCH="wasm32"
+    		;;
     	i386)
     		MACOSX_DEFAULT_ARCH="i386"
     		;;
@@ -9377,6 +9386,9 @@ fi
 		;;
     	arm64)
     		MACOSX_DEFAULT_ARCH="arm64"
+    		;;
+    	wasm32)
+    		MACOSX_DEFAULT_ARCH="wasm32"
     		;;
     	*)
     		as_fn_error $? "Unexpected output of 'arch' on macOS" "$LINENO" 5

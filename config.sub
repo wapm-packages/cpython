@@ -1497,6 +1497,8 @@ case $os in
 	# This must come after -sysvr4.
 	-sysv*)
 		;;
+	-wasi*)
+		;;
 	-ose*)
 		os=-ose
 		;;

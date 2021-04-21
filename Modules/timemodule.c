@@ -62,6 +62,10 @@
 
 #define SEC_TO_NS (1000 * 1000 * 1000)
 
+#ifdef __wasi__
+#  define HAVE_CLOCK 1
+#endif
+
 /* Forward declarations */
 static int pysleep(_PyTime_t);
 

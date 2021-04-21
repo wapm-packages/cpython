@@ -1232,7 +1232,8 @@
 #undef HAVE_TGAMMA
 
 /* Define to 1 if you have the `timegm' function. */
-#undef HAVE_TIMEGM
+#define HAVE_TIMEGM 1
+// #undef HAVE_TIMEGM
 
 /* Define to 1 if you have the `times' function. */
 #undef HAVE_TIMES
@@ -1662,6 +1663,8 @@
 #if defined(__USLC__) && defined(__SCO_VERSION__)
 #define STRICT_SYSV_CURSES /* Don't use ncurses extensions */
 #endif
+
+#  define _Py_FORCE_UTF8_FS_ENCODING
 
 #endif /*Py_PYCONFIG_H*/
 

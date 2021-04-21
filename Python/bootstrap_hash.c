@@ -34,6 +34,10 @@
 #  define HAVE_GETENTRYPY_GETRANDOM_RUNTIME 1
 #endif
 
+#ifdef __wasi__
+#undef HAVE_GETRANDOM
+#define HAVE_GETENTROPY 1
+#endif
 
 #ifdef Py_DEBUG
 int _Py_HashSecret_Initialized = 0;

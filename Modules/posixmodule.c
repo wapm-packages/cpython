@@ -310,6 +310,14 @@ corresponding Unix manual entries for more information on calls.");
 #    define HAVE_CWAIT      1
 #    define HAVE_FSYNC      1
 #    define fsync _commit
+#  elif defined(__wasi__)
+#    define HAVE_OPENDIR    1
+#    undef HAVE_MEMFD_CREATE
+int dup2(int fd1, int fd2);
+#    define HAVE_GETEGID    1
+#    define HAVE_GETEUID    1
+#    define HAVE_GETGID     1
+#    define HAVE_GETUID     1
 #  else
      /* Unix functions that the configure script doesn't check for */
 #    ifndef __VXWORKS__

@@ -24,7 +24,11 @@ dup2(int fd1, int fd2)
             return BADEXIT;
         if (fcntl(fd2, F_GETFL) >= 0)
             close(fd2);
+#ifdef __wasi__
+        if (__wasi_fd_renumber(fd1, fd2) < 0)
+#else
         if (fcntl(fd1, F_DUPFD, fd2) < 0)
+#endif
             return BADEXIT;
     }
     return fd2;
